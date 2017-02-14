@@ -1,0 +1,92 @@
+Feature: Add new form manually
+@One
+Scenario:
+user can add a new fields to form by clicking "+" in the bottom right corner 
+	Given home page
+	And open add new  form 
+		When click on “+” button  (right corner)
+		Then user should see existing fields form(pop-up menu)
+			And user should select for example "Radio List" field 
+		Then user should click on “done” button
+			And should see chosen field on creating new form page
+
+@Two
+Scenario:
+user can add a new fields to form by clicking on "Just click here and select the fields you want." link which is seen on the first view of adding new form
+	Given home page
+	And open add new  form 
+	And user should see existing fields form (pop-up menu)
+		When user select for example "Radio List" field 
+			Then user should click on “done” button
+				And should see that "Radio List" is creating new form page
+@Three
+Scenario: 
+- user can add fields: single checkbox, date, checkbox list, multy-select, radio list, select, submit, paragraph text, single line text, address, city, email, first name, last name, country, state, phone, zip, product, quantity, shipping, total, divider, html, hidden, number, recaptcha, anti-spam and start rating
+	Given home page
+	And open add new  form 
+	When click on “+” button  (right corner)
+		Then user should see existing fields form (pop-up menu)
+		And user add fields: single checkbox, date, checkbox list, multy-select, radio list, select, submit, paragraph text, single line text, address, city, email, first name, last name, country, state, phone, zip, product, quantity, shipping, total, divider, html, hidden, number, recaptcha, anti-spam and start rating (all existing fields)
+	Then user should click on “done” button
+		And should see selected fields on creating new form page
+@Four
+Scenario:
+Each field can be made mandatory and the lable can be changed
+	Given home page
+	And open add new  form 
+		When click on “+” button (right corner)
+		Then user should see existing fields form (pop-up menu)
+			And user should select for example "Adress" field
+		Then user should click on “done” button
+			And user should see that "Adress" field is creating in new form page
+		Then click on icon inside field "Adress" (edit)
+			And should see edit field (pop-up menu)
+		Then should clear label field
+		Then write new label name "New name"
+			And should check required field
+		Then press button “done”
+			And see that edited field is with "New name" name
+@Five
+Scenario:
+in the all avalibale fields search box with filter options is added
+	Given home page
+	And open add new  form 
+		When click on “+” button  (right corner)
+		Then user should see existing fields form (pop-up menu)
+			And should see filter box
+		Then user write in filter box for example "Name"
+			And user should see only "Name" available option
+		Then user click on "done" button
+			And see that field "Name" is added
+
+@Six
+Scenario:
+after clicking "publish" user must select a name for the form
+	Given home page
+	And open add new  form 	
+		When click on “+” button  (right corner)
+		Then user should see existing fields form(pop-up menu)
+			And user should select for example "First name" field
+		Then user should click on "done" button
+			And should see "First name" field on creating new form page
+		Then should click on publish button 
+			And should see pop-up window
+		Then should input form title "NewForm"
+		Then should select submit button
+			And user should click on publish button
+			And user should see new form title "NewForm"
+@Seven
+Scenario:
+If form doesn't have submit field select if it is needed
+	Given home page
+	And open add new  form 	
+		When click on “+” button  (right corner)
+		Then user should see existing fields form(pop-up menu)
+			And user should select for example "First name" field
+		Then user should click on "done" button	
+			And should see chosen field on creating new form page
+		Then should click on publish button 
+			And should see pop-up window
+			And should input form title “NewFrom”
+		Then user should click on “not yet” button
+			And form should be closed 
